@@ -16,14 +16,18 @@ function Account({ user, orders }) {
 }
 
 Account.getInitialProps = async ctx => {
-  const { token } = parseCookies(ctx);
-  if (!token) {
-    return { orders: [] };
+  try {
+    const { token } = parseCookies(ctx);
+    if (!token) {
+      return { orders: [] };
+    }
+    const payload = { headers: { Authorization: token } };
+    const url = `${baseUrl}/api/orders`;
+    const response = await axios.get(url, payload);
+    return response.data;
+  } catch (error) {
+    console.log(error);
   }
-  const payload = { headers: { Authorization: token } };
-  const url = `${baseUrl}/api/orders`;
-  const response = await axios.get(url, payload);
-  return response.data;
 };
 
 export default Account;
