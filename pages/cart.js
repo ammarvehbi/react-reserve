@@ -68,6 +68,7 @@ Cart.getInitialProps = async ctx => {
     const response = await axios.get(url, payload);
     return { products: response.data };
   } catch (error) {
+    console.log('g')
     console.log(error)
   }
 };

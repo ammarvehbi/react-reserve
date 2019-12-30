@@ -36,7 +36,7 @@ class MyApp extends App {
         if (isNotPermitted) {
           redirectUser(ctx, "/");
         }
-        pageProps.user = user;
+        pageProps && (pageProps.user = user);
       } catch (error) {
         console.error("Error getting current user", error);
         // 1) Throw out invalid token
