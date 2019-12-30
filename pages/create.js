@@ -47,7 +47,7 @@ function CreateProduct() {
     const data = new FormData();
     data.append("file", product.media);
     data.append("upload_preset", "reactreserve");
-    data.append("cloud_name", "reedbargercodes");
+    data.append("cloud_name", "drwxqbum1");
     const response = await axios.post(process.env.CLOUDINARY_URL, data);
     const mediaUrl = response.data.url;
     return mediaUrl;
@@ -62,8 +62,7 @@ function CreateProduct() {
       const url = `${baseUrl}/api/product`;
       const { name, price, description } = product;
       const payload = { name, price, description, mediaUrl };
-      const response = await axios.post(url, payload);
-      console.log({ response });
+      await axios.post(url, payload);
       setProduct(INITIAL_PRODUCT);
       setSuccess(true);
     } catch (error) {
