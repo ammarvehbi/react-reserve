@@ -1,7 +1,7 @@
 {
   "name": "HackYourShop",
   "alias": "hackyourshop.now.sh",
-  "version": 1,
+  "version": 2,
   "env": {
     "MONGO_SRV": "mongodb+srv://ammar:123456ammar@hackyourshop-cjald.mongodb.net/test?retryWrites=true&w=majority",
     "JWT_SECRET": "hackyourshop",
