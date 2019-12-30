@@ -29,6 +29,7 @@ async function handleGetRequest(req, res) {
     return res.status(401).send("No authorization token");
   }
   try {
+    console.log('a')
     const { userId } = jwt.verify(
       req.headers.authorization,
       process.env.JWT_SECRET
@@ -39,6 +40,7 @@ async function handleGetRequest(req, res) {
     });
     res.status(200).json(cart.products);
   } catch (error) {
+    console.log('b');
     console.error(error);
     res.status(403).send("Please login again");
   }
@@ -76,6 +78,7 @@ async function handlePutRequest(req, res) {
     }
     res.status(200).send("Cart updated");
   } catch (error) {
+    console.log('c');
     console.error(error);
     res.status(403).send("Please login again");
   }
@@ -101,6 +104,7 @@ async function handleDeleteRequest(req, res) {
     });
     res.status(200).json(cart.products);
   } catch (error) {
+    console.log('d');
     console.error(error);
     res.status(403).send("Please login again");
   }
